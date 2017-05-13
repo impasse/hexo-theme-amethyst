@@ -1,0 +1,4 @@
+#articles
+    each post in page.posts.toArray()
+        !=partial('_partial/article', { post: post })
+    != partial('_partial/paginator')

@@ -1,0 +1,10 @@
+#post
+    h1= page.title
+    article
+        .article-date
+            i.fa.fa-calendar(aria-hidden="true")
+            = full_date(page.date, 'll')
+        .article-content.markdown-body
+            != page.content
+        != partial('_partial/_post/tags', { source: page })
+    != partial('_partial/comment')

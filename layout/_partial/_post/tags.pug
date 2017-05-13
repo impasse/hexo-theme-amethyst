@@ -1,0 +1,4 @@
+.tags
+    i.fa.fa-tags(aria-hidden="true")
+    each tag in source.tags.toArray()
+        a(href=url_for(tag.path))= tag.name

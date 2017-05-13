@@ -1,0 +1,20 @@
+div#archives
+    ul
+        -
+            var data = page.posts.toArray().reduce(function(a, b) {
+                var year = b.date.year();
+                if(a[year]) {
+                    a[year].push(b);
+                } else {
+                    a[year] = [b];
+                }
+                return a;
+            }, {});
+        each year in Object.keys(data).sort().reverse()
+            .archive-year
+                h2= year
+                ul.archive-posts
+                    each post in data[year]
+                        li.archive-post
+                            a(href=url_for(post.path))= post.title
+!= partial('_partial/paginator')

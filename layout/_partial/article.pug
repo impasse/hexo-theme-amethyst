@@ -1,0 +1,9 @@
+article
+    h2.article__title
+        a(href=url_for(post.path))= post.title
+    .article__content.markdown-body!= post.excerpt
+    aside.article__info
+        span.article__info-date
+            i.fa.fa-calendar(aria-hidden="true")
+            = full_date(post.date, 'll')
+        != partial('_post/tags', { source: post })

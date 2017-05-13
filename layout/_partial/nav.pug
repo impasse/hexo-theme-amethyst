@@ -1,0 +1,10 @@
+nav
+    ul
+        - var links = ['links', 'about'];
+        li(class=is_home() ? 'active':'')
+            a(href=config.root) Home
+        li(class=is_archive() ? 'active' : '')
+            a(href=url_for(config.archive_dir))= titlecase(config.archive_dir)
+        each link in links
+            li(class=is_current(link) ? 'active' : '')
+                a(href=url_for(link))= titlecase(link)

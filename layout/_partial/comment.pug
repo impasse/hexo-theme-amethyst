@@ -1,0 +1,12 @@
+#comment
+    if theme.disqus && page.comments
+        #disqus_thread
+        script.
+            var disqus_config = function() {
+                this.page.url = '#{config.url}/#{page.path}';
+                this.page.identifier = '#{page.path}';
+            }
+            var d = document, s = d.createElement('script');
+            s.src = 'https://#{theme.disqus}.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);

@@ -1,0 +1,17 @@
+#sidebar
+    a(href=url_for(config.root))
+        img#logo(src=theme.logo, alt="logo")
+    div#site_name
+        a(href=url_for(config.root))= config.title
+    div.fat
+        #site_description= config.description
+        #socials
+            a(href=theme.github)
+                i.fa.fa-github(aria-hidden="true")
+            a(href=url_for("atom.xml"))
+                i.fa.fa-rss(aria-hidden="true")
+            a(href="#")
+                i.fa.fa-transgender(aria-hidden="true")
+    #copyright
+        p Power by Hexo
+        p Theme by &copy; #{config.author}
