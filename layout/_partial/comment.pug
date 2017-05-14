@@ -1,12 +1,34 @@
-#comment
+.comment
     if theme.disqus && page.comments
-        #disqus_thread
+        #disqus_thread 正在加载评论...
         script.
             var disqus_config = function() {
                 this.page.url = '#{config.url}/#{page.path}';
                 this.page.identifier = '#{page.path}';
-            }
-            var d = document, s = d.createElement('script');
-            s.src = 'https://#{theme.disqus}.disqus.com/embed.js';
-            s.setAttribute('data-timestamp', +new Date());
-            (d.head || d.body).appendChild(s);
+            };
+            (function() {
+                var inserted = false;
+                function insertDISQUS() {
+                    if(inserted) return;
+                    var ele = document.createElement('script');
+                    ele.src = 'https://#{theme.disqus}.disqus.com/embed.js';
+                    ele.setAttribute('data-timestamp', +new Date());
+                    $('head').append(ele);
+                    inserted = true;
+                }
+                if($(window).width() > 750) {
+                    $('main > *:nth-child(2)').on('scroll', function() {
+                        if(this.scrollHeight - $(this).height() - $(this).scrollTop() < 20) {
+                            insertDISQUS();
+                        }
+                    });
+                } else {
+                    $(window).on('scroll', function(e) {
+                        console.log($(document).height() - $(window).height() - $(document).scrollTop())
+                        if($(document).height() - $(window).height() - $(document).scrollTop() < 20) {
+                            insertDISQUS();
+                        }
+                    });
+                }
+            })();
+            

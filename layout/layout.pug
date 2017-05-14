@@ -4,15 +4,17 @@ html
         meta(charset="utf-8")
         meta(name="X-UA-Compatible", content="IE=edge")
         meta(name="viewport", content="width=device-width,initial-scale=1")
-        block title
+        if page.title
+            title= page.title + ' · ' + config.title
+        else
             title= config.title
-        link(ref="stylesheet", href="/css/normalize.css")
-        link(rel="stylesheet", href="/css/font-awesome.min.css")
-        link(rel="stylesheet", href="/css/github-markdown.css")
-        link(rel="stylesheet", href="/css/style.css")
-        script(src="/js/jquery.min.js")
+        link(rel="stylesheet", href="/css/app.css")
+        script(src="/js/jquery-3.2.1.min.js")
     body
         != partial('_partial/sidebar')
         main
             != partial('_partial/nav')
             != body
+        .toggle-btn
+            i.fa.fa-chevron-left(aria-hidden="true")
+        != partial('_partial/scripts')

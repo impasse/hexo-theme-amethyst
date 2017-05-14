@@ -1,0 +1,25 @@
+{
+  "name": "hexo-theme-amethyst",
+  "version": "1.0.0",
+  "description": "hexo-theme-amethyst",
+  "scripts": {
+    "build": "gulp build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lingmm/hexo-theme-amethyst.git"
+  },
+  "author": "shyling<i@shyling.com>",
+  "license": "GPLv3",
+  "bugs": {
+    "url": "https://github.com/lingmm/hexo-theme-amethyst/issues"
+  },
+  "homepage": "https://github.com/lingmm/hexo-theme-amethyst#readme",
+  "devDependencies": {
+    "autoprefixer-stylus": "^0.13.0",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^3.2.0",
+    "gulp-stylus": "^2.6.0"
+  },
+  "dependencies": {}
+}

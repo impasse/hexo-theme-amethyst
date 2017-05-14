@@ -1,6 +1,6 @@
 article
     h2.article__title
-        a(href=url_for(post.path))= post.title
+        a(target="_blank", href=url_for(post.path))= post.title
     .article__content.markdown-body!= post.excerpt
     aside.article__info
         span.article__info-date
